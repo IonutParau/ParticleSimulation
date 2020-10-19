@@ -14,7 +14,9 @@ const colors = [
   '#559955', 'red', 'white', 'gray', 'blue', 'lime', 'yellow', 'cyan', '#403100', 'purple', 'rebeccapurple', 'orange'
 ];
 
+/** A class for our particles */
 class Particle {
+  /** The constructor */
   constructor(pos, mass, color) {
     this.pos = pos;
     this.mass = mass;
@@ -22,15 +24,18 @@ class Particle {
     this.vel = makeVector(0, 0);
   }
 
+  /** Updates their position based off of their velocity, and also changes the velocity */
   update() {
     this.pos.add(this.vel);
     this.vel.multiply(friction);
   }
 
+  /** Draws the particle */
   draw() {
     drawFilledCircle(this.pos.x + camPos.x, this.pos.y + camPos.y, this.mass, this.color);
   }
 
+  /** Attracts another particle */
   attract(other) {
     var dir = other.pos.copy();
     dir.sub(this.pos);
@@ -39,6 +44,7 @@ class Particle {
     this.vel.add(dir);
   }
 
+  /** Checks if a collision is happening and, if it is happening, makes shure the particle doesn't fall inside of the other particle */
   collide(other) {
     var dist = distance(this.pos, other.pos);
 
@@ -55,6 +61,7 @@ class Particle {
 Setup();
 setInterval(Update, 10);
 
+/** Sets the camera position and instantiates the particles */
 function Setup() {
   camPos = makeVector(window.innerWidth/2, window.innerHeight/2);
   for(let i = 0; i < p_count; i++) {
@@ -67,6 +74,7 @@ function Setup() {
   }
 }
 
+/** The function that is called every 10 miliseconds, it is the game loop */
 function Update() {
   clearCanvas();
   canvasFullScreen();
@@ -99,6 +107,7 @@ function Update() {
   }
 }
 
+/** Function for debugging. Counts all particles of a certain color */
 function countAllWithColor(color) {
   var result = 0;
 
