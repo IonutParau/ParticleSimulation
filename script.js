@@ -1,3 +1,8 @@
+// Copyright Ionut Alexandru Parau. 2020. All Rights Reserved.
+// File name: script.js
+// This file is licensed under the GPL-3 License.
+// License text available at LICENSE
+
 const p_count = 1000;
 var particles = new Array(p_count);
 const friction = 0.9;
