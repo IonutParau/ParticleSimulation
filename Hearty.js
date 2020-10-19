@@ -1,3 +1,8 @@
+// Copyright Ionut Alexandru Parau. 2020. All Rights Reserved.
+// Library Module: Hearty.js
+// This file is licensed under the GPL-3 License.
+// License text available at LICENSE
+
 var canvas = document.getElementById("hearty-canvas");
 var keys = Array(256).fill(false);
 var mouseButtons = Array(6).fill(false);
